@@ -5,6 +5,8 @@ package com.br.senai.ads3.agenda_fatesg.pages;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import com.br.senai.ads3.agenda_fatesg.controllers.ContatoController;
+import com.br.senai.ads3.agenda_fatesg.controllers.IContatoSearchController;
 import com.br.senai.ads3.agenda_fatesg.domains.Contato;
 import com.br.senai.ads3.agenda_fatesg.enums.TipoTela;
 import java.awt.EventQueue;
@@ -24,10 +26,12 @@ import javax.swing.table.TableRowSorter;
  */
 public class Form_Listagem extends javax.swing.JFrame {
 
+    IContatoSearchController controller;
     /**
      * Creates new form Form_Listagem
      */
     public Form_Listagem() {
+        controller = new ContatoController();
         initComponents();
         carregarDados();
     }
