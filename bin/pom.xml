@@ -14,51 +14,23 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.38</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit</groupId>
-            <artifactId>junit5-api</artifactId>
-            <version>5.0.0-ALPHA</version>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.antublue</groupId>
-            <artifactId>test-engine</artifactId>
-            <version>6.0.0-M2</version>
-            <scope>test</scope>
-            <type>jar</type>
+            <version>1.18.36</version>
         </dependency>
     </dependencies>
     <build>
     <plugins>
-        <!-- Plugin de Compilação: ONDE O LOMBOK DEVE FICAR -->
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.13.0</version>
-            <configuration>
-                <release>21</release>
-                <annotationProcessorPaths>
-                    <path>
-                        <groupId>org.projectlombok</groupId>
-                        <artifactId>lombok</artifactId>
-                        <version>1.18.38</version>
-                    </path>
-                </annotationProcessorPaths>
-               <compilerArgs>
-                  <arg>-Xlint</arg>
-               </compilerArgs>
-            </configuration>
-        </plugin>
-
-        <!-- Plugin do JAR: APENAS PARA O MANIFESTO -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
-            <version>3.4.1</version>
+            <version>3.2.0</version>
             <configuration>
+                 <annotationProcessorPaths>
+                    <path>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+                        <version>1.18.36</version> <!-- Verifique a versão atual no Maven Central -->
+                    </path>
+                </annotationProcessorPaths>
                 <archive>
                     <manifest>
                         <addClasspath>true</addClasspath>
@@ -67,6 +39,16 @@
                 </archive>
             </configuration>
         </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.14.1</version>
+        <configuration>
+          <compilerArgs>
+            <arg>-Xlint</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
     </plugins>
 </build>
 </project>
